@@ -82,9 +82,8 @@ body{
 
 /* Header */
 .container{
-    width: 800%;
     margin: auto;
-    background-color: white ;
+    background-color: white;
 }
 .header{
     padding: 20px;
@@ -121,4 +120,86 @@ body{
     background-size: auto;
     border-top: 5px solid lightskyblue;
     border-bottom: 5px solid red;
+}
+.content{
+  width: 900px;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: auto;     /* Penting untuk menjaga agar float tetap dalam kontainer */
+  border: 1px solid black;
+  float: left;
+}
+.content2{
+  width: 900px;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow:hidden;     /* Penting untuk menjaga agar float tetap dalam kontainer */
+  border: 1px solid black;
+  float: right;
+}
+.content h2{
+  font-size: 32px;
+  text-shadow: 5px 5px 30px;
+  color:red;
+}
+.content .penulis{
+  font-size: 11px;
+  margin-top: -5px;
+}
+
+
+.content .kotakproduk {
+  height: 100px;
+  width: 100px;
+  box-sizing: border-box;
+  background-image: url(images/banner.jpg);
+  line-height: 180px;
+  color: lightblue;
+  font-size: 10px;
+  text-align: center;
+  margin: 2px; 
+  float: left;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+
+.content2 .tutorial {
+  height: 100px;
+  width: 100px;
+  box-sizing: border-box;
+  background-image: url(images/banner.jpg);
+  line-height: 180px;
+  color: lightblue;
+  font-size: 10px;
+  text-align: center;
+  margin: 2px; 
+  float: left;
+  box-shadow: inset 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+
+.clear{ /* Dengan membuat div .class(clear) */
+  clear: left;  /* Untuk Memberhentikan Float */
+}
+
+/* Atau*/
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    zoom: 1;
+}
+
+.content .isicontent{
+  font-size: 10px;
+}
+.footer{
+  font-size: 15px;
+  background-color: aquamarine;
+  text-align: center;
 }
