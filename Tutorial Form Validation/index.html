@@ -23,18 +23,30 @@
         label{
             display: block;
         }
+        input:invalid, 
+        input:required:invalid {
+            border: none;
+            outline: 2px solid red;
+            border-radius: 2px;
+        }
+        input:valid,
+        input:required {
+            border: 1px solid black;
+            outline: inherit;
+            border-radius: inherit;
+        }
     </style>
-    <!-- Comment Collab -->
+
 </head>
 <body>
-    <form action="" method="post">
+    <form action="" method="post" novalidate>
         <div>
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" autocomplete="off" minlength="10" maxlength="13">
+            <input type="text" name="name" id="name" autocomplete="off" minlength="10" maxlength="13" oninvalid="this.setCustomValidity('Nama harus diisi minimal 10 karakter')" oninput="this.setCustomValidity('')">
         </div>
         <div>
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" autofocus>
+            <input type="email" name="email" id="email" autofocus >
         </div>
         <div>
             <label for="nohp">Masukkan No HP:</label>
@@ -51,7 +63,7 @@
         <div>
             <label for="slider">Masukkan Angka:</label>
             <span class="awal">0</span>
-            <input type="range" name="slider" id="slider" min ="1" max = "100" step="2">
+            <input type="range" name="slider" id="slider" min ="0" max = "100" step="2">
             <span class="akhir">100</span>
         </div>
         <div>
@@ -74,15 +86,32 @@
         <div>
             <label for="warna">Masukkan warna:</label>
             <input type="color" name="warna" id="warna">
+            <span class="warnahexa"> </span>
+
         </div>
         <div>
             <button type="submit">Submit</button>
         </div>
     </form>
-<!-- lapar-->
+
     <script>
         const slider = document.querySelector('#slider');
         const awal = document.querySelector('.awal');
+        const akhir = document.querySelector('.akhir');
+
+        awal.innerHTML = slider.min;
+        akhir.innerHTML = slider.value;
+        slider.addEventListener('input', function(){
+            akhir.innerHTML = slider.value;
+        });
+        
+        const warna = document.querySelector('#warna');
+        const warnahexa = document.querySelector('.warnahexa');
+        warnahexa.innerHTML = warna.value;
+        warna.addEventListener('input', function() {
+            warnahexa.innerHTML = warna.value
+            warnahexa.style.color = warna.value
+        });
     </script>
 </body>
 

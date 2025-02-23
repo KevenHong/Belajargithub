@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>HTML5</title>
+</head>
+<style> 
+    body{
+        font-family: sans-serif;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center ;
+        font-size: 1.125em;
+        line-height: 1.6;
+        color: #333;
+        padding: 2em;
+    }
+    .product{
+        display: grid;
+        align-items: center;
+        grid-gap: 2em;
+    }
+    .img{
+        width: 100%;
+        height: auto;
+    }
+    @media (min-width: 960px){
+        .product{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
+<body>
+    <header>
+        <img    src="img/Logo-kecil.png"
+                alt="Logo Sudut Game" 
+                title="Sudut Game" 
+                srcset="img/Logo-kecil.png 300w, img/Logo-sedang.png 600w, img/Logo-besar.png 1200w"
+                sizes="(max-width: 1400px) 50vw"
+                />
+        <img    src="img/Logo-sedang.png"
+                alt="Logo Sudut Game" 
+                title="Sudut Game" 
+                srcset="img/Logo-kecil.png 300w, img/Logo-sedang.png 600w, img/Logo-besar.png 1200w"
+                loading="lazy"/> <!-- gambar tidak di load saat pertama kali -->
+    </header>
+    <br>
+    <div class="product">
+        <div class =product-item>
+            <H1>Product 1</H1>
+            <p>Deskripsi Product 1</p>
+        </div>
+        <picture>
+            <source media="(min-width: 960px)" srcset="img - Copy/Logo-besar.png" sizes="50vw">
+            <source media="(min-width: 600px)" srcset="img - Copy/Logo-sedang.png">
+            <img    src="img - Copy/Logo-kecil.png"
+                    alt="Logo Sudut Game" 
+                    title="Sudut Game" 
+                    />
+        </picture>
+    </div> 
+    
+</body>
+</html>

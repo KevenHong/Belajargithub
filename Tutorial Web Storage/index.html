@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Home</title>
+        <style>
+            a{
+                color: inherit;
+            }
+            .dark-mode {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body class="dark-mode">
+        <h1>Home Keven</h1>
+        <p>Welcome to the home page.</p>
+<a href="" onclick="gantiNama">Ganti Nama</a>
+<a href="" onclick="hapusNama">Hapus Nama</a>
+<a href="" class="toogle"> Darkmode</a>
+<a href="" onclick="hapusStorage">Hapus Storage</a>
+<script>
+const judul = document.querySelector('h1');
+let nama = localStorage.getItem('nama');
+
+if (!nama) {
+    nama = prompt('Masukkan nama anda: ');
+    localStorage.setItem('nama', nama);   //memasukjan data ke local storage
+
+    //sessionStorage.setItem('nama', nama);  //memasukkan data ke session storage
+}
+judul.innerHTML = `Selamat datang, ${nama}!`;
+
+//Ganti nama
+const gantiNama = (e) => {
+    nama = prompt('Masukkan nama baru: ');
+    localStorage.setItem('nama', nama);
+    e.preventDefault();
+}
+
+const hapusNama = (e) => {
+    localStorage.removeItem('nama');
+    e.preventDefault();
+}
+const hapusStorage = (e) => {
+    localStorage.clear;
+    e.preventDefault();
+}
+
+
+//Toglgle Dark Mode
+const toggle = document.querySelector('.toggle');
+ let tema = localStorage.getItem('tema');
+ if(!tema){
+     localStorage.setItem('tema', 'light');
+ }
+ const darkMode = () => {
+     document.body.classList.add('dark-mode');
+     toogle.innerHTML = 'Light Mode';
+     localStorage.setItem('tema', 'dark');
+ }
+ const lightmode = () => {
+     document.body.classList.remove('dark-mode');
+     toogle.innerHTML = 'Dark Mode';
+     localStorage.setItem('tema', 'light');
+ }
+if(tema === 'dark'){
+    darkMode();
+}
+
+
+ toogle.addEventListener('click', function(e) {
+    tema = localStorage.getItem('tema');
+     if(tema === 'light'){
+        darkMode();
+     }else{
+        lightmode();
+     }
+     e.preventDefault
+ });
+</script>
+
+    </body>
+
+</html>
